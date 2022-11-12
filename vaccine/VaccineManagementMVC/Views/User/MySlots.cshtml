@@ -1,0 +1,74 @@
+﻿@model IEnumerable<VaccineManagementAPI.Models.Slot>
+
+@{
+    ViewBag.Title = "MySlots";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>MySlots</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoseNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime.Day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime.TimeOfDay)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Count)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Center.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vaccination.VaccineName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoseNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime.Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime.TimeOfDay)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Count)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Center.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vaccination.VaccineName)
+        </td>
+        <td>
+            @Html.ActionLink("Reshedule", "Reshedule", new { id=item.SlotId })
+        </td>
+    </tr>
+}
+
+</table>
