@@ -1,0 +1,60 @@
+﻿@*@{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+
+    <h2>Index</h2>*@
+
+<!--@model IEnumerable<VaccineManagementAPI.Models.User>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>CREATE PDF in ASP.Net MVC</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div id="PrintPDF">
+            <h1>This section is going to be printed in PDF</h1>
+        </div>
+
+
+        @using (Html.BeginForm("Export", "Home", FormMethod.Post))
+        {
+            <input type="hidden" name="ExportData" />
+            <input type="submit" id="btnSubmit" value="Export" />
+        }
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#btnSubmit").click(function () {
+                    $("input[name='ExportData']").val($("#PrintPDF").html());
+                });
+            });
+        </script>
+    </div>
+
+
+</div>-->
+<h1 class="text-success text-center" >Enter Mobile Number for Download your Certificate</h1>
+<br />
+<br />
+<br />
+    <div style="display:flex; justify-content:center;align-items:center">
+        @{Html.BeginForm("CreatePDFDocument", "Home", FormMethod.Get);
+            {
+                <div >
+                    @Html.TextBox("PhoneNo")
+                    <input type="submit" value="Download" />
+                </div>
+                @*<div>
+                    <input type="submit" value="Generate PDF Document" style="width:150px;height:27px" />
+                </div>*@
+            }
+            Html.EndForm();
+        }
+    </div>
